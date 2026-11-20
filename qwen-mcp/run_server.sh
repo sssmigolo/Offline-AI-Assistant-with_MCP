@@ -12,7 +12,7 @@ echo "Starting llama-server with Qwen3.5-4B on Intel Iris Xe GPU..."
 echo "Port: 8080, Context: 8192 tokens, Slots: 1"
 
 exec llama-server \
-  -m /home/migg/models/Qwen3.5-4B-Q4_K_M.gguf \
+  -m "$HOME/models/Qwen3.5-4B-Q4_K_M.gguf \
   --alias Qwen3.5-4B \
   -ngl 99 \
   -c 8192 \
