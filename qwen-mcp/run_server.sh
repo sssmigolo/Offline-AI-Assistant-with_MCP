@@ -8,7 +8,12 @@ export GGML_SYCL_FA_ONEDNN=0
 export PATH="$HOME/.local/bin:$PATH"
 source /opt/intel/oneapi/setvars.sh > /dev/null 2>&1
 
-echo "Starting llama-server with Qwen3.5-4B on Intel Iris Xe GPU..."
+if [ -f /opt/intel/oneapi/setvars.sh ]; then
+    source /opt/intel/oneapi/setvars.sh > /dev/null 2>&1
+    export GGML_SYCL_FA_ONEDNN=0
+fi
+
+echo "Starting llama-server with Qwen3.5-4B ..."
 echo "Port: 8080, Context: 8192 tokens, Slots: 1"
 
 exec llama-server \
