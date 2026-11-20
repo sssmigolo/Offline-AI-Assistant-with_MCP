@@ -19,8 +19,8 @@ llm_cfg = {
 }
 
 # Full filesystem access
-allowed_paths = ["/", "/mnt/c", "/mnt/d"]
-
+candidate_paths = ["/", "/mnt/c", "/mnt/d"]
+allowed_paths = [p for p in candidate_paths if Path(p).exists()]
 mcp_tools = [
     {
         "mcpServers": {
@@ -85,7 +85,7 @@ def chat(user_message, history):
 
 demo = gr.ChatInterface(
     fn=chat,
-    title="🤖 Qwen Local Assistant (Web UI)",
+    title=" Qwen Local Assistant (Web UI)",
     description="Running locally on Intel Iris Xe GPU with full PC filesystem access (Linux `/`, Windows `C:`, `D:`)",
     examples=[
         "What files are in /home/migg/mcp_workspace?",
