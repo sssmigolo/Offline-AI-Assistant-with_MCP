@@ -1,4 +1,4 @@
-# Local Qwen Assistant with Filesystem MCP
+# Local Ai Assistant with Filesystem MCP Capabilities
 
 A private, 100% local AI computer assistant powered by **Qwen3.5-4B** accelerated on **Intel Iris Xe GPU** (via `llama.cpp` + SYCL). 
 
@@ -6,18 +6,18 @@ Integrated with the **Model Context Protocol (MCP)**, allowing the model to sear
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
-- **🧠 100% Local Inference**: Zero cloud dependencies; all prompt evaluation and text generation run on your local Intel Iris Xe / Arc GPU using `llama.cpp` compiled with SYCL.
-- **📁 Full Filesystem MCP**: Uses `@modelcontextprotocol/server-filesystem` to safely read, edit, write, and search files across Linux root (`/`) and mounted Windows drives (`/mnt/c`, `/mnt/d`).
-- **🌐 Interactive Web UI**: ChatGPT-style web interface with live visualization of MCP tool calls and filesystem execution results.
-- **⚡ Intel Iris Xe Optimizations**:
+- **100% Local Inference**: Zero cloud dependencies; all prompt evaluation and text generation run on your local Intel Iris Xe / Arc GPU using `llama.cpp` compiled with SYCL.
+- **Full Filesystem MCP**: Uses `@modelcontextprotocol/server-filesystem` to safely read, edit, write, and search files across Linux root (`/`) and mounted Windows drives (`/mnt/c`, `/mnt/d`).
+- **Interactive Web UI**: ChatGPT-style web interface with live visualization of MCP tool calls and filesystem execution results.
+- **Intel Iris Xe Optimizations**:
   - `GGML_SYCL_FA_ONEDNN=0` to eliminate Level Zero `UR_RESULT_ERROR_OUT_OF_RESOURCES` crashes on integrated GPUs.
   - Single-slot memory management (`-np 1`) and 8,192 token context window (`-c 8192`) sized for full MCP tool schemas.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 qwen-mcp/
@@ -33,12 +33,13 @@ qwen-mcp/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Prerequisites
-- **WSL2** (Ubuntu 24.04 recommended)
+- **WSL2 OR Linux** (Ubuntu 24.04 recommended)
 - **Node.js** (for `npx @modelcontextprotocol/server-filesystem`)
 - **Intel oneAPI Base Toolkit** + Intel GPU compute drivers
+- **If you use Nvidia download llama.cpp with cuda**
 - `llama.cpp` compiled with SYCL support (`llama-server`)
 - Qwen GGUF model (e.g. `Qwen3.5-4B-Q4_K_M.gguf` stored in `~/models/`)
 
@@ -94,7 +95,4 @@ llama-server \
   --host 127.0.0.1
 ```
 
----
-
-## 📄 License
-MIT License.
+---I use an intel GPU so forgive me okay ('~')
